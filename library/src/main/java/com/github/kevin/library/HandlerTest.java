@@ -1,4 +1,8 @@
-package com.github.kevin.handler;
+package com.github.kevin.library;
+
+import com.github.kevin.library.core.Handler;
+import com.github.kevin.library.core.Looper;
+import com.github.kevin.library.core.Message;
 
 import java.util.UUID;
 

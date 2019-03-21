@@ -1,4 +1,4 @@
-package com.github.kevin.handler;
+package com.github.kevin.library.core;
 
 public class Handler {
     private MessageQueue mQueue;

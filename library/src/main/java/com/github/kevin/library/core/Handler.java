@@ -19,6 +19,26 @@ public class Handler {
     }
 
     /**
+     *
+     * @param r
+     */
+    public void post(Runnable r) {
+        sendMessage(getPostMessage(r));
+    }
+
+    /**
+     *
+     * @param r
+     * @return
+     */
+    private static Message getPostMessage(Runnable r) {
+        Message m = new Message();
+        m.callback = r;
+        return m;
+    }
+
+
+    /**
      * 处理消息
      *
      * @param msg
@@ -28,12 +48,24 @@ public class Handler {
     }
 
     /**
+     *
+     * @param message
+     */
+    private static void handleCallback(Message message) {
+        message.callback.run();
+    }
+
+    /**
      * 分发消息
      *
      * @param msg
      */
     public void dispatchMessage(Message msg) {
-        handleMessage(msg);
+        if (msg.callback != null) {
+            handleCallback(msg);
+        } else {
+            handleMessage(msg);
+        }
     }
 
 }

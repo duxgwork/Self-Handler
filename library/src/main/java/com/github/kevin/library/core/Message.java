@@ -2,6 +2,7 @@ package com.github.kevin.library.core;
 
 public class Message {
     Handler target;
+    Runnable callback;
     public Object obj;
     public int what;
 
